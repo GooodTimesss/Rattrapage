@@ -1,0 +1,74 @@
+
+<system>
+	<optimization>normal</optimization>
+	<hostname>pfSense-efrei</hostname>
+	<domain>local</domain>
+	<dnsallowoverride></dnsallowoverride>
+	<group>
+		<name>all</name>
+		<description><![CDATA[All Users]]></description>
+		<scope>system</scope>
+		<gid>1998</gid>
+	</group>
+	<group>
+		<name>admins</name>
+		<description><![CDATA[System Administrators]]></description>
+		<scope>system</scope>
+		<gid>1999</gid>
+		<member>0</member>
+		<priv>page-all</priv>
+	</group>
+	<user>
+		<name>admin</name>
+		<descr><![CDATA[System Administrator]]></descr>
+		<scope>system</scope>
+		<groupname>admins</groupname>
+		<uid>0</uid>
+		<priv>user-shell-access</priv>
+		<bcrypt-hash>$2y$10$wa4Uno3lrPCQzxeY30BgIek56/7wZ2QxjUoFUhmokt8XXcm9YC5Qe</bcrypt-hash>
+	</user>
+	<user>
+		<scope>user</scope>
+		<bcrypt-hash>$2y$10$nq.Nxjej48MDYJRYiW57a.ehPFOy0PcjShwdopzmF5o9AAWpgHePK</bcrypt-hash>
+		<descr></descr>
+		<name>uservpn</name>
+		<expires></expires>
+		<dashboardcolumns>2</dashboardcolumns>
+		<authorizedkeys></authorizedkeys>
+		<ipsecpsk></ipsecpsk>
+		<webguicss>pfSense.css</webguicss>
+		<cert>686533df8c1c9</cert>
+		<uid>2002</uid>
+	</user>
+	<nextuid>2003</nextuid>
+	<nextgid>2000</nextgid>
+	<timeservers>2.pfsense.pool.ntp.org</timeservers>
+	<webgui>
+		<protocol>http</protocol>
+		<loginautocomplete></loginautocomplete>
+		<ssl-certref>685bf3ff986df</ssl-certref>
+		<dashboardcolumns>2</dashboardcolumns>
+		<max_procs>2</max_procs>
+		<roaming>enabled</roaming>
+	</webgui>
+	<disablenatreflection>yes</disablenatreflection>
+	<disablesegmentationoffloading></disablesegmentationoffloading>
+	<disablelargereceiveoffloading></disablelargereceiveoffloading>
+	<ipv6allow></ipv6allow>
+	<maximumtableentries>400000</maximumtableentries>
+	<powerd_ac_mode>hadp</powerd_ac_mode>
+	<powerd_battery_mode>hadp</powerd_battery_mode>
+	<powerd_normal_mode>hadp</powerd_normal_mode>
+	<bogons>
+		<interval>monthly</interval>
+	</bogons>
+	<hn_altq_enable></hn_altq_enable>
+	<timezone>Etc/UTC</timezone>
+	<ssh>
+		<enable>enabled</enable>
+		<sshdkeyonly>enabled</sshdkeyonly>
+	</ssh>
+	<serialspeed>115200</serialspeed>
+	<primaryconsole>video</primaryconsole>
+	<pkg_repo_conf_path>2_8_0</pkg_repo_conf_path>
+</system>

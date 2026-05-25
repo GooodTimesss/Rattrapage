@@ -1,0 +1,62 @@
+#  README – Configuration IDS/IPS (Suricata) sur pfSense pour une machine Ubuntu
+
+##  Objectif
+
+Mettre en place un système de **détection et de prévention d’intrusion (IDS/IPS)** à l’aide de **Suricata** sur pfSense, afin de **surveiller et protéger le trafic réseau** d’une machine Ubuntu spécifique.
+
+---
+
+##  Prérequis
+
+- pfSense (version 2.6 ou 23.x)
+- Une machine Ubuntu connectée au réseau local
+- Interface LAN configurée sur pfSense
+- Connexion Internet sur pfSense pour récupérer les règles IDS/IPS
+
+---
+
+##  Étapes d'installation et de configuration
+
+### 1. Installation de Suricata
+
+- Interface Web pfSense → `System > Package Manager > Available Packages`
+- Rechercher **Suricata** → `Install`
+- Attendre la fin de l'installation
+
+---
+
+### 2. Création d’une instance Suricata
+
+- `Services > Suricata > Interfaces > Add`
+- **Interface** : choisir `LAN` (ou celle utilisée par Ubuntu)
+- **Description** : `Suricata_LAN_Ubuntu`
+- Activer `Enable Interface`
+- Activer `Block Offenders` pour activer le **mode IPS** (blocage)
+
+---
+
+### 3. Configuration des règles
+
+- Onglet `Global Settings` :
+  - Activer **ET Open Rules**
+  - (Optionnel) Ajouter l’Oinkcode Snort VRT si disponible
+- Onglet `Update` :
+  - Cliquer sur **Update Rules**
+
+---
+
+### 4. Application des règles
+
+- Aller dans `Interfaces > Edit > Categories`
+- Sélectionner les catégories à activer (malware, trojan, botnet, etc.)
+- `Save` puis `Apply`
+
+---
+
+### 5. Surveillance ciblée de la machine Ubuntu
+
+- Adresse IP de la machine Ubuntu : **192.168.1.100** (exemple)
+- Onglet `Rules` → `Add` → créer une règle personnalisée :
+
+```snort
+alert ip 192.168.1.100 any -> any any (msg:"[UBUNTU] Trafic de la machine Ubuntu détecté"; sid:1000001; rev:1;)

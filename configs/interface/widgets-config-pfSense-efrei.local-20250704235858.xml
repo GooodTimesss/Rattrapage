@@ -1,0 +1,5 @@
+
+<widgets>
+	<sequence>system_information:col1:open:0,traffic_graphs:col1:close:0,interfaces:col1:open:0,services_status:col1:open:0,suricata_alerts:col2:open:0,log:col2:open:0,openvpn:col2:open:0,ipsec:col2:open:0,gateways:col2:open:0,openvpn:col2:open:1</sequence>
+	<period>10</period>
+</widgets>

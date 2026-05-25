@@ -1,0 +1,62 @@
+
+# Test de Performance Réseau avec iperf3
+
+Ce guide décrit les étapes pour tester les performances réseau entre deux machines virtuelles à l'aide de l'outil **iperf3**.
+
+## Prérequis
+
+- Deux machines virtuelles (par exemple : **Ubuntu** et **Kali**)
+- Connexion temporaire à Internet via **NAT** pour l'installation des paquets
+
+## Installation d'iperf3
+
+Sur **chaque VM**, exécutez les commandes suivantes :
+
+```bash
+sudo apt update
+sudo apt install iperf3
+```
+
+> **Important** : Branchez les machines en mode **NAT** pour installer les paquets, puis passez en mode **Host-only (vmnet)** pour les tests.
+
+## Configuration du test
+
+### 1. Choisir les rôles des machines
+
+Attribuez arbitrairement un rôle de **serveur** à une machine et de **client** à l'autre.
+
+### 2. Lancer le serveur
+
+Sur la machine **serveur**, exécutez :
+
+```bash
+iperf3 -s
+```
+
+### 3. Lancer le client
+
+Sur la machine **client**, exécutez :
+
+```bash
+iperf3 -c <IP_du_serveur>
+```
+
+Remplacez `<IP_du_serveur>` par l’adresse IP de la machine serveur.
+
+## Test UDP (perte de paquets)
+
+Pour tester les performances en **UDP** et observer la perte de paquets :
+
+```bash
+iperf3 -c <IP_du_serveur> -u -b 10M
+```
+
+- `-u` : utilise le protocole UDP
+- `-b` : définit la bande passante cible (ex : 10 Mbps)
+
+## Notes complémentaires
+
+- Le port par défaut utilisé par iperf3 est **5201**.
+- Vous pouvez ajouter `-t <durée>` pour définir le temps du test.
+- Option `-V` pour un affichage plus détaillé.
+

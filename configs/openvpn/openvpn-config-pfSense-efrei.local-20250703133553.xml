@@ -1,0 +1,29 @@
+
+<openvpn>
+	<openvpn-server>
+		<vpnid>1</vpnid>
+		<mode>server_tls_user</mode>
+		<authmode>Local Database</authmode>
+		<protocol>UDP4</protocol>
+		<dev_mode>tun</dev_mode>
+		<interface>wan</interface>
+		<ipaddr></ipaddr>
+		<local_port>1194</local_port>
+		<description><![CDATA[VPN_Teletravail]]></description>
+		<tls>IwojIDIwNDggYml0IE9wZW5WUE4gc3RhdGljIGtleQojCi0tLS0tQkVHSU4gT3BlblZQTiBTdGF0aWMga2V5IFYxLS0tLS0KY2Q5ODM2NzhjZTI2NTZmNjcwN2Y5ZWRiYzRhZTA1NmEKM2RhYjUxMzM3OTYxYjllMGQ3Zjk1ODQ1YmFhM2FjOTYKYTRhMDA1YjAzMWEyOGQyYWExNDlmODEzZGU4OWMyN2UKZDkwYTEzZjdkMzZiNTA4MWU0OGFlODU2ZmY2MTdkZmYKYzE2NzM2MzNhM2NhMDc2NDdhYzI2Y2FjMjY4NDk2MmIKNThiZjJkODE1ZGMxNmU5OTEyNjdiNjY5ZWMzZTAzMTQKYWM2ZDRmYmI2MmM4YWQ5YmJjOTBkNTU5NDY4YzMzODIKMDYxMjM4MjZmNzYyNDQwNzk1NzEwNmJiZDhiOWEyZDAKOGFjMmQwZWIwMWVhZjVmZmNhNDhjNTNjM2Q4MTAzYTgKZjgxNmYwYjRlNTg4OWYyYzFjOGYxNDk2Y2Y4MWY1NDYKOGI0N2VhNjljZDI1ZWE5MGQ4ODMzMDllODIxMWIzNmEKN2Y4ZmIzMmE0YzMzZjhlZGFiZWYzYTU2ZGY1YTA5MzcKMmZmZTdmOGRmYmIyOTllODgzYjMyM2IwMjcxOWQ0YzcKNzg3YjlmNTdmMTcwYzhmNTVlOWQ2ODIwZTNjNTRlODIKYjVhMzUzNGYyZDYxNWRjYmFiMjY5NTc2ZmI4YmZjNzIKZWNjNmY0N2NmMmNjMmE1MjkzNDk2NTJkZTQzMGJhODgKLS0tLS1FTkQgT3BlblZQTiBTdGF0aWMga2V5IFYxLS0tLS0K</tls>
+		<tls_type>auth</tls_type>
+		<caref>6863ef1c45467</caref>
+		<certref>686532bebf5ca</certref>
+		<dh_length>2048</dh_length>
+		<data_ciphers>AES-256-GCM,AES-128-GCM,CHACHA20-POLY1305</data_ciphers>
+		<data_ciphers_fallback>AES-256-CBC</data_ciphers_fallback>
+		<digest>SHA256</digest>
+		<tunnel_network>10.10.10.0/24</tunnel_network>
+		<local_network>192.168.50.0/24</local_network>
+		<allow_compression>no</allow_compression>
+		<topology>subnet</topology>
+		<dns_server1>192.168.1.1</dns_server1>
+		<exit_notify>1</exit_notify>
+		<inactive_seconds>300</inactive_seconds>
+	</openvpn-server>
+</openvpn>
